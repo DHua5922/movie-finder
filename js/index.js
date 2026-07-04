@@ -78,17 +78,18 @@ function renderLoading() {
 }
 
 function renderMovies() {
-  moviesWrapper.innerHTML = movies
-    .map((movie) => {
-      const containerElem = document.createElement("li");
-      containerElem.classList.add("movie__wrapper");
-      containerElem.innerHTML = `
-        <div class="movie__img" style="background-image: url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}');">
-          <h3 class="text-dark movie__title">${movie.title}</h3>
-        </div>
-      `;
+  moviesWrapper.innerHTML = "";
+  movies.forEach((movie) => {
+    const containerElem = document.createElement("li");
+    containerElem.classList.add("movie__wrapper");
 
-      return containerElem.outerHTML;
-    })
-    .join("");
+    const linkElem = document.createElement("a");
+    linkElem.classList.add("movie__img-link");
+    linkElem.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}')`;
+    linkElem.innerHTML = `<h3 class="text-dark movie__title">${movie.title}</h3>`;
+    linkElem.href = `movie.html?id=${movie.id}`;
+
+    containerElem.appendChild(linkElem);
+    moviesWrapper.appendChild(containerElem);
+  });
 }
