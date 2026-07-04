@@ -1,0 +1,108 @@
+const movieVideoWrapper = document.querySelector(".movie__video--wrapper");
+const movieImgWrapper = document.querySelector(".movie__image--wrapper");
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadMovie();
+});
+
+async function loadMovie() {
+  renderLoading();
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const movieId = urlParams.get("id");
+
+  const [movie, videos] = await Promise.all([
+    getMovieDetailsApi(movieId),
+    getMovieVideosApi(movieId),
+  ]);
+  renderMovie(movie);
+  renderMovieTrailer(videos);
+}
+
+function renderLoading() {
+  const movieDetailsElem = document.querySelector(".movie__details");
+  movieDetailsElem.innerHTML = `
+    <div class="skeleton movie__title-skeleton"></div>
+    <div class="skeleton movie__languages-skeleton"></div>
+    <div class="skeleton movie__info-skeleton"></div>
+    <div class="skeleton movie__overview-skeleton"></div>
+  `;
+
+  movieImgWrapper.innerHTML = `<div class="skeleton movie__img-skeleton"></div>`;
+  movieVideoWrapper.innerHTML = `<div class="skeleton movie__video-skeleton"></div>`;
+}
+
+function renderMovie(movie) {
+  const movieImageElem = document.createElement("img");
+  movieImageElem.classList.add("movie__image");
+  movieImageElem.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+  movieImageElem.alt = movie.title;
+  movieImgWrapper.innerHTML = "";
+  movieImgWrapper.appendChild(movieImageElem);
+
+  const movieDetailsElem = document.querySelector(".movie__details");
+  const spokenLanguages = movie.spoken_languages;
+  const infoItems = [
+    movie.status,
+    movie.release_date,
+    movie.runtime ? `${movie.runtime} minutes` : null,
+  ].filter(Boolean);
+
+  movieDetailsElem.innerHTML = `
+    <h1 class="movie__title">${movie.title}</h1>
+
+    ${
+      spokenLanguages.length > 0
+        ? `<div class="movie__languages flex">
+            ${spokenLanguages
+              .map(
+                (language) =>
+                  `<div class="movie__language">${language.english_name}</div>`,
+              )
+              .join("")}
+          </div>`
+        : ""
+    }
+
+    ${
+      infoItems.length > 0
+        ? `<div class="flex movie__info">
+              ${infoItems
+                .map((item) => `<span class="italics">${item}</span>`)
+                .join("|")}
+            </div>`
+        : ""
+    }
+    
+    <p>${movie.overview}</p>
+  `;
+}
+
+function renderMovieTrailer(videos) {
+  const trailer = videos.find((video) => video.type === "Trailer");
+  if (trailer) {
+    const iframeElem = document.createElement("iframe");
+    iframeElem.classList.add("movie__video");
+    iframeElem.setAttribute("allowfullscreen", "");
+    iframeElem.setAttribute(
+      "allow",
+      `accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;`,
+    );
+    iframeElem.setAttribute("loading", "lazy");
+    iframeElem.setAttribute("title", trailer.name);
+    iframeElem.src =
+      trailer.site === "YouTube"
+        ? `https://www.youtube.com/embed/${trailer.key}`
+        : `https://vimeo.com/embed/${trailer.key}`;
+
+    movieVideoWrapper.innerHTML = "";
+    movieVideoWrapper.appendChild(iframeElem);
+  }
+}

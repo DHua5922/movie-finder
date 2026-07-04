@@ -46,6 +46,10 @@ select:focus {
     box-shadow: 0 0 0 2px var(--dark-color);
 }
 
+img {
+    width: 100%;
+}
+
 /*
 
     NAVIGATION

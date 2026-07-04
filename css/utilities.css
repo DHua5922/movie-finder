@@ -3,9 +3,13 @@
     padding: 10px 25px;
     border: none;
 }
-.btn-primary {
+.btn-light {
     background-color: var(--light-color);
     color: var(--dark-color);
+}
+.btn-dark {
+    background-color: var(--dark-color);
+    color: var(--light-color);
 }
 
 .text-dark {
@@ -13,6 +17,10 @@
 }
 .text-light {
     color: var(--light-color);
+}
+
+.italics {
+    font-style: italic;
 }
 
 
@@ -53,6 +61,11 @@
     outline: var(--outline-light);
     outline-offset: var(--outline-offset);
 }
+
+.flex {
+    display: flex;
+}
+
 
 /* 
 
