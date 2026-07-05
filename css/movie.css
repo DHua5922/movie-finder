@@ -2,17 +2,6 @@ main {
     padding: 2rem;
 }
 
-.back-link {
-    text-decoration: none;
-    color: var(--dark-color);
-    margin-bottom: 2rem;
-    gap: 0.5rem;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 1.25rem;
-}
-
 .movie__container {
     gap: 2rem;
 }
@@ -62,6 +51,11 @@ main {
     background-color: var(--dark-color);
     color: var(--light-color);
     padding: 4px 12px;
+}
+
+.movie__add-to-cart-btn {
+    width: fit-content;
+    font-size: 1rem;
 }
 
 .movie__video--wrapper {

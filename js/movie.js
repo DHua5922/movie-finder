@@ -3,10 +3,6 @@ const movieImgWrapper = document.querySelector(".movie__image--wrapper");
 
 window.addEventListener("DOMContentLoaded", () => {
   loadMovie();
-
-  document.querySelector(".back-link").addEventListener("click", () => {
-    window.history.back();
-  });
 });
 
 async function loadMovie() {
@@ -46,12 +42,35 @@ function renderMovie(movie) {
   movieImgWrapper.appendChild(movieImageElem);
 
   const movieDetailsElem = document.querySelector(".movie__details");
+
   const spokenLanguages = movie.spoken_languages;
   const infoItems = [
     movie.status,
     movie.release_date,
     movie.runtime ? `${movie.runtime} minutes` : null,
   ].filter(Boolean);
+
+  const addToCartButton = document.createElement("button");
+  addToCartButton.classList.add("movie__add-to-cart-btn", "btn", "btn-dark");
+  addToCartButton.textContent = "Add to Cart";
+  addToCartButton.addEventListener("click", () => {
+    const cart = getCartFromLocalStorage();
+    const existingMovieIndex = cart.findIndex((item) => item.id === movie.id);
+
+    if (existingMovieIndex !== -1) {
+      cart[existingMovieIndex].quantity += 1;
+    } else {
+      cart.push({
+        id: movie.id,
+        title: movie.title,
+        quantity: 1,
+        image: movie.poster_path,
+      });
+    }
+
+    setCartToLocalStorage(cart);
+    alert(`${movie.title} has been added to your cart!`);
+  });
 
   movieDetailsElem.innerHTML = `
     <h1 class="movie__title">${movie.title}</h1>
@@ -81,6 +100,7 @@ function renderMovie(movie) {
     
     <p>${movie.overview}</p>
   `;
+  movieDetailsElem.appendChild(addToCartButton);
 }
 
 function renderMovieTrailer(videos) {
