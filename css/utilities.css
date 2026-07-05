@@ -11,6 +11,10 @@
     background-color: var(--dark-color);
     color: var(--light-color);
 }
+.btn-link, .btn-link:hover {
+    text-decoration: none;
+}
+
 
 .text-dark {
     color: var(--dark-color);
@@ -65,6 +69,28 @@
 .flex {
     display: flex;
 }
+.flex-column {
+    flex-direction: column;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.relative {
+    position: relative;
+}
+
+.movie-bg {
+    background-image: url(../assets/movie-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.text-center {
+    text-align: center;
+}
+
 
 
 /* 
@@ -90,5 +116,84 @@
 
     100% {
         background-position: -200% 0;
+    }
+}
+
+/* 
+
+    CAROUSEL
+
+*/
+.carousel {
+    --carousel-pos-anchor: --carousel;
+
+    padding: 20px;
+    display: flex;
+    gap: 4vw;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    anchor-name: var(--carousel-pos-anchor);
+    scroll-marker-group: after;
+    height: 350px;
+}
+.carousel::scroll-button(*) {
+    border: 0;
+    font-size: 2rem;
+    background: none;
+    color: var(--light-color);
+    opacity: 0.7;
+    cursor: pointer;
+    position: absolute;
+    position-anchor: var(--carousel-pos-anchor);
+    bottom: calc(anchor(bottom) + 8rem);
+}
+.carousel::scroll-button(left) {
+    content: "◄" / "Previous";
+    right: calc(anchor(left));
+}
+.carousel::scroll-button(right) {
+    content: "►" / "Next";
+    left: calc(anchor(right));
+}
+.carousel::scroll-button(*):hover,
+.carousel::scroll-button(*):focus {
+    opacity: 1;
+}
+.carousel::scroll-button(*):active {
+    translate: 1px 1px;
+}
+.carousel::scroll-button(*):disabled {
+    opacity: 0.2;
+    cursor: unset;
+}
+
+.carousel-item {
+    flex: 0 0 200px;
+    scroll-snap-align: center;
+}
+
+
+@media (min-width: 768px) {
+    .carousel::scroll-marker-group {
+        position: absolute;
+        position-anchor: var(--carousel-pos-anchor);
+        top: calc(anchor(bottom) + 10px);
+        justify-self: anchor-center;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .carousel-item::scroll-marker {
+        content: attr(data-accName);
+        width: 16px;
+        height: 16px;
+        border: 2px solid var(--light-color);
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .carousel-item::scroll-marker:target-current {
+        background-color: var(--light-color);
     }
 }

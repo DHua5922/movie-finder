@@ -8,7 +8,6 @@
     --outline-offset: 4px;
     --outline-light: 3px solid var(--light-color);
     --outline-dark: 3px solid var(--dark-color);
-
 }
 
 * {
@@ -18,9 +17,21 @@
     font-family: var(--font-family);
 }
 
+html,
+body {
+    min-height: 100vh;
+}
 html {
     color-scheme: var(--color-scheme);
     scroll-behavior: smooth;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
 }
 
 li {
