@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Search for movies and filter them by title or release date."
+    />
+
+    <title>Movies</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/utilities.css" />
+    <link rel="stylesheet" href="css/search-movies.css" />
+  </head>
+  <body>
+    <section class="relative">
+      <div class="overlay movie-bg"></div>
+
+      <nav>
+        <figure class="nav__logo--wrapper">
+          <img
+            src="./assets/logo-brand.svg"
+            alt="Logo"
+            class="nav__logo--img"
+          />
+        </figure>
+
+        <ul class="nav__links">
+          <li>
+            <a href="index.html" class="nav__link text-light focus-ring-light"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="search-movies.html"
+              class="nav__link btn btn-light focus-ring-light"
+              >Find Movies</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <header class="header__container container">
+        <h1 class="header__title">Search Movies</h1>
+
+        <form class="header__movie-search-form">
+          <input
+            type="text"
+            placeholder="Search for a movie..."
+            class="header__movie-search-input focus-ring-light"
+          />
+        </form>
+      </header>
+    </section>
+
+    <main>
+      <section id="movies-section">
+        <div class="movies__container container">
+          <div class="movies__filter">
+            <h2 class="text-dark movies__results--label">Search Results:</h2>
+            <select aria-label="Filter movies" class="text-dark movies__select">
+              <option value="">-- Choose Filter --</option>
+              <option value="alphabetical">Alphabetical A to Z</option>
+              <option value="reverse-alphabetical">Alphabetical Z to A</option>
+              <option value="newest">Newest to oldest</option>
+              <option value="oldest">Oldest to newest</option>
+            </select>
+          </div>
+
+          <ul
+            class="movies__list focus-ring-dark"
+            aria-label="Movie search results"
+          ></ul>
+
+          <form class="movies__pagination-form">
+            <input
+              class="movies__pagination-input focus-ring-dark"
+              name="page"
+              value="1"
+              aria-label="Page number"
+              type="number"
+            />
+            of <span class="movies__total-pages">1</span>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer__container">
+        <figure class="nav__logo--wrapper">
+          <img
+            src="./assets/logo-brand.svg"
+            alt="Logo"
+            class="nav__logo--img"
+          />
+        </figure>
+
+        <hr class="divider-line footer__divider-line" />
+
+        <p class="text-light footer__copyright">
+          &copy; 2024 Movies. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/search-movies.js"></script>
+    <script src="js/api.js"></script>
+  </body>
+</html>

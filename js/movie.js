@@ -3,6 +3,10 @@ const movieImgWrapper = document.querySelector(".movie__image--wrapper");
 
 window.addEventListener("DOMContentLoaded", () => {
   loadMovie();
+
+  document.querySelector(".back-link").addEventListener("click", () => {
+    window.history.back();
+  });
 });
 
 async function loadMovie() {
@@ -81,6 +85,9 @@ function renderMovie(movie) {
 
 function renderMovieTrailer(videos) {
   const trailer = videos.find((video) => video.type === "Trailer");
+
+  movieVideoWrapper.innerHTML = "";
+  movieVideoWrapper.style.display = "none";
   if (trailer) {
     const iframeElem = document.createElement("iframe");
     iframeElem.classList.add("movie__video");
@@ -102,7 +109,7 @@ function renderMovieTrailer(videos) {
         ? `https://www.youtube.com/embed/${trailer.key}`
         : `https://vimeo.com/embed/${trailer.key}`;
 
-    movieVideoWrapper.innerHTML = "";
     movieVideoWrapper.appendChild(iframeElem);
+    movieVideoWrapper.style.display = "block";
   }
 }

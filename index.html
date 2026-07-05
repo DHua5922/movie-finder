@@ -24,79 +24,55 @@
     <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
-    <section id="header-section">
-      <div class="overlay movie-bg"></div>
+    <main>
+      <section class="relative">
+        <div class="overlay movie-bg"></div>
 
-      <nav>
-        <figure class="nav__logo--wrapper">
-          <img
-            src="./assets/logo-brand.svg"
-            alt="Logo"
-            class="nav__logo--img"
-          />
-        </figure>
+        <nav>
+          <figure class="nav__logo--wrapper">
+            <img
+              src="./assets/logo-brand.svg"
+              alt="Logo"
+              class="nav__logo--img"
+            />
+          </figure>
 
-        <ul class="nav__links">
-          <li>
-            <a href="index.html" class="nav__link text-light focus-ring-light"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a
-              href="index.html"
-              class="nav__link btn btn-light focus-ring-light"
+          <ul class="nav__links">
+            <li>
+              <a href="index.html" class="nav__link text-light focus-ring-light"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="search-movies.html"
+                class="nav__link btn btn-light btn-link focus-ring-light"
+                >Find Movies</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div class="container flex flex-column hero__content">
+          <h1 class="text-center text-light hero__title">Search Movies</h1>
+          <p class="text-center text-light hero__description">
+            Find your favorite movies and explore new ones.
+          </p>
+          <div class="justify-content-center flex">
+            <a href="search-movies.html" class="btn btn-light btn-link"
               >Find Movies</a
             >
-          </li>
-        </ul>
-      </nav>
-
-      <header class="header__container container">
-        <h1 class="header__title">Search Movies</h1>
-
-        <form class="header__movie-search-form">
-          <input
-            type="text"
-            placeholder="Search for a movie..."
-            class="header__movie-search-input focus-ring-light"
-          />
-        </form>
-      </header>
-    </section>
-
-    <section id="movies-section">
-      <main>
-        <div class="movies__container container">
-          <div class="movies__filter">
-            <h2 class="text-dark movies__results--label">Search Results:</h2>
-            <select aria-label="Filter movies" class="text-dark movies__select">
-              <option value="">-- Choose Filter --</option>
-              <option value="alphabetical">Alphabetical A to Z</option>
-              <option value="reverse-alphabetical">Alphabetical Z to A</option>
-              <option value="newest">Newest to oldest</option>
-              <option value="oldest">Oldest to newest</option>
-            </select>
           </div>
-
-          <ul
-            class="movies__list focus-ring-dark"
-            aria-label="Movie search results"
-          ></ul>
-
-          <form class="movies__pagination-form">
-            <input
-              class="movies__pagination-input focus-ring-dark"
-              name="page"
-              value="1"
-              aria-label="Page number"
-              type="number"
-            />
-            of <span class="movies__total-pages">1</span>
-          </form>
         </div>
-      </main>
-    </section>
+      </section>
+
+      <section id="trending-movies-section">
+        <div class="container">
+          <h2 class="text-light">Trending Now</h2>
+          <ul class="carousel"></ul>
+        </div>
+      </section>
+    </main>
 
     <footer>
       <div class="container footer__container">
