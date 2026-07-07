@@ -16,7 +16,7 @@
     color: white;
 }
 .cart__header h1 {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .cart__item {
@@ -29,13 +29,13 @@
     text-decoration: underline;
     font-size: 1rem;
 }
-.cart__item button:focus {
+.cart__item button:focus, .cart__header button:focus {
     outline-color: red;
     outline-offset: var(--outline-offset);
 }
 
 .cart__item-img--wrapper {
-    max-width: 200px;
+    max-width: 150px;
 }
 .cart__item-img--wrapper figcaption {
     text-align: center;
@@ -44,10 +44,6 @@
 
 .cart__item input {
     max-width: 100px;
-    border: 1px solid var(--dark-color);
-    border-radius: 4px;
-    padding: 0.5rem;
-    font-size: 1rem;
 }
 
 @media(min-width: 576px) {

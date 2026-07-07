@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Shopping cart for movies. View your selected movies and proceed to checkout."
+      content="Checkout page for movies. Review your order and complete the purchase process."
     />
 
     <title>Movies</title>
@@ -21,7 +21,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/utilities.css" />
-    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
 
     <!-- FONT AWESOME ICONS -->
     <script
@@ -66,18 +66,47 @@
           Back
         </button>
 
-        <header class="cart__header flex flex-column align-items-center">
-          <h1 class="text-dark">Shopping Cart</h1>
-          <button class="btn btn-danger">Remove All</button>
-        </header>
-        <div class="cart"></div>
+        <div class="card">
+          <form>
+            <div class="form-group">
+              <label for="name-input" class="form-label required">Name</label>
+              <input
+                id="name-input"
+                type="text"
+                placeholder="Name"
+                required
+                aria-describedby="name-error-message"
+              />
+              <p id="name-error-message" class="form-error-msg"></p>
+            </div>
 
-        <div class="flex justify-content-center cart__checkout-btn--wrapper">
-          <a class="btn btn-dark btn-link focus-ring-dark" href="checkout.html"
-            >Proceed to Checkout</a
-          >
+            <div class="form-group">
+              <label for="email-input" class="form-label required">Email</label>
+              <input
+                id="email-input"
+                type="email"
+                placeholder="Email"
+                required
+                aria-describedby="email-error-message"
+              />
+              <p id="email-error-message" class="form-error-msg"></p>
+            </div>
+          </form>
+
+          <ul class="cart-items"></ul>
+
+          <div class="flex justify-content-center cart__checkout-btn--wrapper">
+            <button class="btn btn-dark focus-ring-dark cart__checkout-btn">
+              Confirm Selection
+            </button>
+          </div>
         </div>
       </section>
+
+      <dialog autofocus aria-label="Confirmation Dialog" class="text-center">
+        <div class="success-msg text-center">Thanks for Confirming!</div>
+        <a href="index.html" class="success-btn btn">Back to Home</a>
+      </dialog>
     </main>
 
     <footer>
@@ -99,7 +128,7 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
     <script src="js/utilities.js"></script>
   </body>
 </html>

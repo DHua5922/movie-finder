@@ -41,6 +41,9 @@
     font-style: italic;
 }
 
+.hidden {
+    display: none;
+}
 
 .container {
     max-width: 1200px;
@@ -119,6 +122,15 @@
     font-size: 1.25rem;
 }
 
+.required::after {
+    content: "*";
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
 
 /* 
 
@@ -222,5 +234,72 @@
 
     .carousel-item::scroll-marker:target-current {
         background-color: var(--light-color);
+    }
+}
+
+/*
+
+    MODAL
+
+*/
+
+/* Open state of the dialog  */
+dialog:open {
+    opacity: 1;
+    transform: translate(-50%, -50%) scaleY(1);
+}
+
+/* Closed state of the dialog   */
+dialog {
+    --dialog-animation-duration: 0.3s;
+
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    border: none;
+    border-radius: 8px;
+    padding: 2rem;
+
+    /* Equivalent to
+      transition: all var(--dialog-animation-duration) allow-discrete; */
+    opacity: 0;
+    transform: translate(-50%, -50%) scaleY(0);
+    transition:
+        opacity var(--dialog-animation-duration) ease-out,
+        transform var(--dialog-animation-duration) ease-out,
+        overlay var(--dialog-animation-duration) ease-out allow-discrete,
+        display var(--dialog-animation-duration) ease-out allow-discrete;
+}
+
+/* Before open state  */
+/* Needs to be after the previous dialog:open rule to take effect,
+    as the specificity is the same */
+@starting-style {
+    dialog:open {
+        opacity: 0;
+        transform: translate(-50%, -50%) scaleY(0);
+    }
+}
+
+/* Transition the :backdrop when the dialog modal is promoted to the top layer */
+dialog::backdrop {
+    background-color: transparent;
+    transition:
+        display var(--dialog-animation-duration) allow-discrete,
+        overlay var(--dialog-animation-duration) allow-discrete,
+        background-color var(--dialog-animation-duration);
+    /* Equivalent to
+  transition: all var(--dialog-animation-duration) allow-discrete; */
+}
+
+dialog:open::backdrop {
+    background-color: rgb(0 0 0 / 25%);
+}
+
+/* This starting-style rule cannot be nested inside the above selector
+because the nesting selector cannot represent pseudo-elements. */
+@starting-style {
+    dialog:open::backdrop {
+        background-color: transparent;
     }
 }
