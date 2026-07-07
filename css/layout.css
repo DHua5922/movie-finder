@@ -8,6 +8,8 @@
     --outline-offset: 4px;
     --outline-light: 3px solid var(--light-color);
     --outline-dark: 3px solid var(--dark-color);
+
+    --success-color: #7dcf7d;
 }
 
 * {
@@ -38,12 +40,16 @@ li {
     list-style-type: none;
 }
 
+label {
+    display: block;
+    margin-bottom: 4px;
+}
+
 input {
-    padding: 10px;
-    border-radius: 25px;
-    border: none;
-    width: 100%;
-    outline: none;
+    border: 1px solid var(--dark-color);
+    border-radius: 4px;
+    padding: 0.5rem;
+    font-size: 1rem;
 }
 
 select {

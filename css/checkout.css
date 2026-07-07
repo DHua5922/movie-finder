@@ -1,0 +1,59 @@
+.container {
+    padding: 2rem;
+}
+
+.card {
+    --box-shadow: 0px 1px 12px -6px #000000;
+
+    -webkit-box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+input {
+    width: 100%;
+}
+
+.form-error-msg {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.cart__item {
+    gap: 8px;
+    margin: 2rem 0;
+}
+.cart__item-img--wrapper {
+    max-width: 100px;
+}
+
+.success-msg {
+    color: var(--success-color);
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+.success-btn {
+    display: inline-block;
+    outline: 1px solid var(--success-color);
+    text-decoration: none;
+    color: var(--success-color);
+    margin-top: 1rem;
+}
+.success-btn:focus, .success-btn:hover {
+    background-color: var(--success-color);
+    color: white;
+}
+
+@media (min-width: 576px) {
+    .cart__item {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .success-msg {
+        color: #7dcf7d;
+        font-size: 2.5rem;
+    }
+}

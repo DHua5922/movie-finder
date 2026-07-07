@@ -51,7 +51,7 @@ function loadCartItems() {
 function cartItemHtml(item) {
   return `
     <div class="cart__item flex flex-column justify-content-center align-items-center">
-        <a class="btn-link" href="movie.html?id=${item.id}">    
+        <a class="btn-link focus-ring-dark" href="movie.html?id=${item.id}">    
             <figure class="cart__item-img--wrapper">
                 <img src="https://image.tmdb.org/t/p/w500${item.image}" alt="${item.title}" />
                 <figcaption>${item.title}</figcaption>
@@ -64,7 +64,7 @@ function cartItemHtml(item) {
 }
 
 function removeAllItemsFromCart() {
-  localStorage.removeItem(cartKey);
+  localStorage.removeItem("cart");
   showEmptyCartMessage();
   loadCartItems();
 }
