@@ -49,15 +49,19 @@ function loadCartItems() {
 }
 
 function cartItemHtml(item) {
+  const inputId = `quantity-input-${item.id}`;
   return `
     <div class="cart__item flex flex-column justify-content-center align-items-center">
         <a class="btn-link focus-ring-dark" href="movie.html?id=${item.id}">    
             <figure class="cart__item-img--wrapper">
-                <img src="https://image.tmdb.org/t/p/w500${item.image}" alt="${item.title}" />
-                <figcaption>${item.title}</figcaption>
+                <img src="https://image.tmdb.org/t/p/w500${item.image}" alt="image of ${item.title}" />
+                <figcaption class="text-dark">${item.title}</figcaption>
             </figure>
         </a>
-        <input name="quantity" type="number" value="${item.quantity}" min="1" />
+
+        <label for="${inputId}" class="visually-hidden">Quantity for ${item.title}</label>
+        <input id="${inputId}" class="focus-ring-dark" name="quantity" type="number" value="${item.quantity}" min="1" />
+
         <button class="btn btn-transparent" data-remove-item-id="${item.id}">Remove</button>
     </div>
 `;

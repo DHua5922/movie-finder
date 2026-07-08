@@ -51,7 +51,12 @@ function renderMovie(movie) {
   ].filter(Boolean);
 
   const addToCartButton = document.createElement("button");
-  addToCartButton.classList.add("movie__add-to-cart-btn", "btn", "btn-dark");
+  addToCartButton.classList.add(
+    "movie__add-to-cart-btn",
+    "btn",
+    "btn-dark",
+    "focus-ring-dark",
+  );
   addToCartButton.textContent = "Add to Cart";
   addToCartButton.addEventListener("click", () => {
     const cart = getCartFromLocalStorage();

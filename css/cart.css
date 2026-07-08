@@ -1,4 +1,6 @@
 .container {
+    --danger-color: #b00020;
+
     padding: 2rem;
 }
 
@@ -12,7 +14,7 @@
     gap: 20px;
 }
 .cart__header button {
-    background-color: red;
+    background-color: var(--danger-color);
     color: white;
 }
 .cart__header h1 {
@@ -25,12 +27,12 @@
 }
 
 .cart__item button {
-    color: red;
+    color: var(--danger-color);
     text-decoration: underline;
     font-size: 1rem;
 }
 .cart__item button:focus, .cart__header button:focus {
-    outline-color: red;
+    outline-color: var(--danger-color);
     outline-offset: var(--outline-offset);
 }
 
