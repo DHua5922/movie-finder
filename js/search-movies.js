@@ -84,7 +84,7 @@ function renderMovies() {
     containerElem.classList.add("movie__wrapper");
 
     const linkElem = document.createElement("a");
-    linkElem.classList.add("movie__img-link");
+    linkElem.classList.add("movie__img-link", "focus-ring-dark");
     linkElem.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}')`;
     linkElem.innerHTML = `<h3 class="text-dark movie__title">${movie.title}</h3>`;
     linkElem.href = `movie.html?id=${movie.id}`;

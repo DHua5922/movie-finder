@@ -50,13 +50,13 @@ function loadCartItems() {
 
 function cartItemHtml(item) {
   return `
-    <div class="cart__item flex flex-column justify-content-center align-items-center">
+    <li class="cart__item flex flex-column justify-content-center align-items-center">
         <figure class="cart__item-img--wrapper">
             <img src="https://image.tmdb.org/t/p/w500${item.image}" alt="${item.title}" />
             <figcaption class="text-center">${item.title}</figcaption>
         </figure>
         <p class="text-center">Qty: ${item.quantity}</p>
-    </div>
+    </li>
 `;
 }
 

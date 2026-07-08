@@ -45,6 +45,18 @@
     display: none;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.absolute {
+    position: absolute;
+}
+
 .container {
     max-width: 1200px;
     width: 100%;
@@ -185,6 +197,10 @@
     position: absolute;
     position-anchor: var(--carousel-pos-anchor);
     bottom: calc(anchor(bottom) + 8rem);
+}
+.carousel::scroll-button(*):focus {
+    outline: var(--outline-light);
+    outline-offset: var(--outline-offset);
 }
 .carousel::scroll-button(left) {
     content: "◄" / "Previous";

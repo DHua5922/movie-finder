@@ -12,6 +12,12 @@
     --success-color: #7dcf7d;
 }
 
+[data-theme="dark"] {
+    --color-scheme: dark;
+    --dark-color: white;
+    --light-color: #09084a;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -96,6 +102,11 @@ nav {
 }
 .nav__link:hover {
     text-decoration: underline;
+}
+
+.nav__theme-icon {
+    cursor: pointer;
+    font-size: 1.75rem;
 }
 
 /*
