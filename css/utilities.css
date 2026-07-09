@@ -105,6 +105,9 @@
 .flex-column {
     flex-direction: column;
 }
+.flex-wrap {
+    flex-wrap: wrap;
+}
 
 .align-items-center {
     align-items: center;

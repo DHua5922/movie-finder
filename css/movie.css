@@ -7,7 +7,8 @@ main {
 }
 
 .movie__image--wrapper {
-    width: 40%;
+    width: 100%;
+    max-width: 300px;
 }
 
 .movie__details {
@@ -18,7 +19,7 @@ main {
 }
 
 .movie__img-skeleton {
-    width: 300px;
+    width: 100%;
     height: 400px;
 }
 .movie__video-skeleton {
@@ -73,23 +74,17 @@ main {
     border: none;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .movie__container {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        align-items: start;
     }
 
-    .movie__title {
-        text-align: center;
-    }
-    .movie__languages, .movie__info {
-        justify-content: center;
-        flex-wrap: wrap;
+    .movie__details {
+        align-items: start;
     }
 
-    .movie__title-skeleton,
-    .movie__languages-skeleton,
-    .movie__info-skeleton {
-        margin: auto;
+    .movie__languages {
+        justify-content: start;
     }
 }
