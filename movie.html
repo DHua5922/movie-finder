@@ -36,7 +36,14 @@
         <img src="./assets/logo-brand.svg" alt="Logo" class="nav__logo--img" />
       </figure>
 
-      <ul class="nav__links">
+      <button
+        aria-label="expand / collapse links on mobile screen"
+        class="cursor-pointer nav__expand-mobile-links-button text-dark focus-ring-dark btn-transparent"
+      >
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav__links--desktop">
         <li>
           <a href="index.html" class="nav__link text-dark focus-ring-dark"
             >Home</a
@@ -66,6 +73,36 @@
         </li>
       </ul>
     </nav>
+
+    <div class="nav__links--mobile-wrapper">
+      <ul class="nav__links--mobile">
+        <li>
+          <a href="index.html" class="nav__link text-dark focus-ring-dark"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a href="cart.html" class="nav__link text-dark focus-ring-dark"
+            >Cart</a
+          >
+        </li>
+        <li>
+          <a
+            href="search-movies.html"
+            class="nav__link btn btn-dark btn-link focus-ring-dark"
+            >Find Movies</a
+          >
+        </li>
+        <li>
+          <button
+            class="nav__theme-toggle-btn btn-transparent text-dark focus-ring-dark cursor-pointer"
+            aria-label="Toggle light/dark theme"
+          >
+            Light/Dark Mode
+          </button>
+        </li>
+      </ul>
+    </div>
 
     <main>
       <section class="container">

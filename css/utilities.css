@@ -24,6 +24,10 @@
     text-decoration: none;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .disabled {
     opacity: 0.5;
     cursor: not-allowed;
