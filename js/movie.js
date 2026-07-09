@@ -78,11 +78,11 @@ function renderMovie(movie) {
   });
 
   movieDetailsElem.innerHTML = `
-    <h1 class="movie__title">${movie.title}</h1>
+    <h1 class="movie__title text-center">${movie.title}</h1>
 
     ${
       spokenLanguages.length > 0
-        ? `<div class="movie__languages flex">
+        ? `<div class="movie__languages flex flex-wrap justify-content-center">
             ${spokenLanguages
               .map(
                 (language) =>
@@ -97,7 +97,7 @@ function renderMovie(movie) {
       infoItems.length > 0
         ? `<div class="flex movie__info">
               ${infoItems
-                .map((item) => `<span class="italics">${item}</span>`)
+                .map((item) => `<span class="italic">${item}</span>`)
                 .join("|")}
             </div>`
         : ""
