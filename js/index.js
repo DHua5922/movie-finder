@@ -42,10 +42,10 @@ function renderMovies(list) {
     containerElem.classList.add("carousel-item", "relative");
 
     const linkElem = document.createElement("a");
-    linkElem.classList.add("carousel-item__link", "focus-ring-light");
+    linkElem.classList.add("movie__link", "movie-hover", "focus-ring-light");
     linkElem.href = `movie.html?id=${movie.id}`;
     linkElem.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}')`;
-    linkElem.innerHTML = `<h3 class="text-dark movie__title">${movie.title}</h3>`;
+    linkElem.innerHTML = `<h3 class="text-dark movie__title movie__title--light">${movie.title}</h3>`;
 
     containerElem.appendChild(linkElem);
     moviesWrapper.appendChild(containerElem);
