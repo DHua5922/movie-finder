@@ -78,7 +78,7 @@ function renderMovie(movie) {
   });
 
   movieDetailsElem.innerHTML = `
-    <h1 class="movie__title text-center">${movie.title}</h1>
+    <h1 class="text-center">${movie.title}</h1>
 
     ${
       spokenLanguages.length > 0
