@@ -38,7 +38,7 @@ async function searchForMovies(event) {
   maxPages = data.total_pages;
   renderMovies();
 
-  document.querySelector(".movies__results--label").innerText =
+  document.querySelector(".movies__results-label").innerText =
     `Search Results: ${data.total_results} movies found`;
 
   moviePageForm.style.display = "flex";
@@ -64,10 +64,10 @@ function filterMovies(event) {
 
 function renderLoading() {
   const movieSkeletons = Array.from({ length: 8 }, () => {
-    const skeleton = document.createElement("div");
-    skeleton.classList.add("movie__wrapper");
+    const skeleton = document.createElement("li");
+    skeleton.classList.add("movie-card");
     skeleton.innerHTML = `
-      <div class="skeleton movie-image-skeleton"></div>
+      <div class="skeleton movie-card__skeleton"></div>
     `;
     return skeleton;
   });
@@ -81,12 +81,12 @@ function renderMovies() {
   moviesWrapper.innerHTML = "";
   movies.forEach((movie) => {
     const containerElem = document.createElement("li");
-    containerElem.classList.add("movie__wrapper");
+    containerElem.classList.add("movie-card");
 
     const linkElem = document.createElement("a");
-    linkElem.classList.add("movie__link", "movie-hover", "focus-ring-dark");
+    linkElem.classList.add("movie-card__link", "focus-ring-dark");
     linkElem.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}')`;
-    linkElem.innerHTML = `<h3 class="text-dark movie__title movie__title--dark">${movie.title}</h3>`;
+    linkElem.innerHTML = `<h3 class="text-dark movie-card__title movie-card__title--dark">${movie.title}</h3>`;
     linkElem.href = `movie.html?id=${movie.id}`;
 
     containerElem.appendChild(linkElem);

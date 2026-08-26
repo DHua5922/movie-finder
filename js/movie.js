@@ -23,14 +23,14 @@ async function loadMovie() {
 function renderLoading() {
   const movieDetailsElem = document.querySelector(".movie__details");
   movieDetailsElem.innerHTML = `
-    <div class="skeleton movie__title-skeleton"></div>
-    <div class="skeleton movie__languages-skeleton"></div>
-    <div class="skeleton movie__info-skeleton"></div>
-    <div class="skeleton movie__overview-skeleton"></div>
+    <div class="skeleton movie-page__title-skeleton"></div>
+    <div class="skeleton movie-page__languages-skeleton"></div>
+    <div class="skeleton movie-page__info-skeleton"></div>
+    <div class="skeleton movie-page__overview-skeleton"></div>
   `;
 
-  movieImgWrapper.innerHTML = `<div class="skeleton movie__img-skeleton"></div>`;
-  movieVideoWrapper.innerHTML = `<div class="skeleton movie__video-skeleton"></div>`;
+  movieImgWrapper.innerHTML = `<div class="skeleton movie-page__img-skeleton"></div>`;
+  movieVideoWrapper.innerHTML = `<div class="skeleton movie-page__video-skeleton"></div>`;
 }
 
 function renderMovie(movie) {
