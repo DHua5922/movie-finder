@@ -27,7 +27,7 @@ function renderMovie(movie) {
   );
   addToCartButton.textContent = "Add to Cart";
   addToCartButton.addEventListener("click", () => {
-    addToCart();
+    addToCart(movie);
   });
 
   movieDetailsElem.innerHTML = movieDetailsHtml(
@@ -38,7 +38,7 @@ function renderMovie(movie) {
   movieDetailsElem.appendChild(addToCartButton);
 }
 
-function addToCart() {
+function addToCart(movie) {
   const cart = getCartFromLocalStorage();
   const existingMovieIndex = cart.findIndex((item) => item.id === movie.id);
 

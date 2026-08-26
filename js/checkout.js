@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   document
     .querySelector(".cart__checkout-btn")
-    .addEventListener("click", () => checkOut());
+    .addEventListener("click", () => checkOut(dialog));
 });
 
 function loadCartItems() {
@@ -33,7 +33,7 @@ function cartItemHtml(item) {
   `;
 }
 
-function checkOut() {
+function checkOut(dialog) {
   const nameErrorMessage = document.querySelector("#name-error-message");
   const emailErrorMessage = document.querySelector("#email-error-message");
 
