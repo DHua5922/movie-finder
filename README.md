@@ -13,7 +13,7 @@ A responsive movie discovery app built with HTML, CSS, and JavaScript. The app u
 - Update quantities, remove items, clear the cart, and complete a basic checkout flow
 - Toggle between light and dark theme styles
 - Responsive layout for desktop and mobile screens
-- Accessibility-focused markup with landmarks, focus states, labels, and semantic content
+- Accessibility-focused markup with landmarks, a skip link to main content, focus states, labels, and semantic content
 
 ## Tech Stack
 
@@ -45,7 +45,7 @@ movie-finder/
 
 ## Accessibility
 
-This project was reviewed with axe DevTools and Lighthouse. Accessibility improvements include semantic landmarks, accessible form labels, visible focus states, descriptive image alt text, iframe titles, and keyboard-friendly interactive elements.
+This project was reviewed with axe DevTools and Lighthouse. Accessibility improvements include semantic landmarks, skip links, accessible form labels, visible focus states, descriptive image alt text, iframe titles, and keyboard-friendly interactive elements.
 
 Some best-practice warnings may still come from third-party embedded content, such as the YouTube trailer iframe.
 
