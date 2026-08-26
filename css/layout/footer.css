@@ -1,0 +1,26 @@
+footer {
+    background-color: var(--dark-color);
+}
+
+.footer__container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 80px 20px;
+}
+
+.footer__divider-line {
+    margin: 40px 0;
+}
+
+@media (min-width: 576px) {
+    .nav__links--desktop {
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav__links--mobile-wrapper,
+    .nav__expand-mobile-links-button {
+        display: none;
+    }
+}

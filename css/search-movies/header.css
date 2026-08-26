@@ -1,0 +1,39 @@
+.header__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0 40px;
+    padding-bottom: 70px;
+}
+
+.header__title {
+    color: var(--light-color);
+    font-weight: 300;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.header__movie-search-form {
+    max-width: 600px;
+    width: 100%;
+}
+.header__movie-search-input {
+    font-size: 18px;
+    padding: 15px 30px;
+    border-radius: 35px;
+    border: none;
+    width: 100%;
+    outline: none;
+}
+
+@media (min-width: 576px) {
+    .header__title {
+        font-size: 2.5rem;
+    }
+
+    .header__movie-search-input {
+        font-size: 24px;
+        padding: 20px 40px;
+    }
+}

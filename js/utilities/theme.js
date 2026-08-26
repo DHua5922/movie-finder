@@ -1,5 +1,3 @@
-const cartKey = "cart";
-
 const themeLocalStorageKey = "theme";
 const themeDataAttribute = "data-theme";
 const themeToggleBtnElem = document.querySelectorAll(".nav__theme-toggle-btn");
@@ -9,27 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
   themeToggleBtnElem.forEach((button) => {
     button.addEventListener("click", toggleTheme);
   });
-
-  document.querySelector(".back-link")?.addEventListener("click", () => {
-    window.history.back();
-  });
-
-  document
-    .querySelector(".nav__expand-mobile-links-button")
-    ?.addEventListener("click", () => {
-      document
-        .querySelector(".nav__links--mobile-wrapper")
-        .classList.toggle("expanded");
-    });
 });
-
-function getCartFromLocalStorage() {
-  return JSON.parse(localStorage.getItem(cartKey)) || [];
-}
-
-function setCartToLocalStorage(cart) {
-  localStorage.setItem(cartKey, JSON.stringify(cart));
-}
 
 function toggleTheme() {
   const currentTheme =

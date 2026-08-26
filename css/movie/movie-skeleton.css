@@ -1,0 +1,29 @@
+.movie-page__img-skeleton {
+    width: 100%;
+    height: 400px;
+}
+
+.movie-page__video-skeleton {
+    max-width: 800px;
+    height: 400px;
+}
+
+.movie-page__title-skeleton {
+    width: 150px;
+    height: 35px;
+}
+
+.movie-page__languages-skeleton {
+    width: 100px;
+    height: 30px;
+}
+
+.movie-page__info-skeleton {
+    width: 150px;
+    height: 20px;
+}
+
+.movie-page__overview-skeleton {
+    width: 400px;
+    height: 200px;
+}
