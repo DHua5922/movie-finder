@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 async function loadTrendingMovies() {
-  // renderLoading();
+  renderLoading();
   try {
     const list = await getTrendingMoviesApi();
     renderMovies(list);

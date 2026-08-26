@@ -42,7 +42,6 @@
     height: 100%;
     z-index: -1;
 }
-
 .overlay::after {
     content: "";
     position: absolute;
@@ -81,7 +80,6 @@
 .relative {
     position: relative;
 }
-
 
 .text-center {
     text-align: center;

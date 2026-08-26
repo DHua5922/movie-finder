@@ -35,7 +35,7 @@
 }
 
 .movie-bg {
-    background-image: url(../assets/movie-bg.jpg);
+    background-image: url(../../assets/movie-bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }

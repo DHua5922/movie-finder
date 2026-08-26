@@ -18,11 +18,12 @@ window.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     const page = Number(moviePageInput.value);
 
-    renderLoading();
+    renderSkeleton();
     const data = await searchMoviesApi(movieSearchInput.value, page);
     movies = data.results;
     renderMovies();
   });
+
   moviePageInput.addEventListener("input", (event) => {
     const newPageNum = Number(event.target.value);
     event.target.value = Math.max(1, Math.min(maxPages, newPageNum));
@@ -32,7 +33,7 @@ window.addEventListener("DOMContentLoaded", () => {
 async function searchForMovies(event) {
   event.preventDefault();
 
-  renderLoading();
+  renderSkeleton();
   const data = await searchMoviesApi(movieSearchInput.value);
   movies = data.results;
   maxPages = data.total_pages;
@@ -62,7 +63,7 @@ function filterMovies(event) {
   renderMovies();
 }
 
-function renderLoading() {
+function renderSkeleton() {
   const movieSkeletons = Array.from({ length: 8 }, () => {
     const skeleton = document.createElement("li");
     skeleton.classList.add("movie-card");
