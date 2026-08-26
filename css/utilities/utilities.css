@@ -1,0 +1,126 @@
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.hidden {
+    display: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    text-decoration: none;
+    transform: translateY(-200%);
+    transition: transform 0.2s ease-in-out;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
+
+.divider-line {
+    height: 0.5px;
+    background-color: var(--light-color);
+    width: 100%;
+    opacity: 0.25;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.overlay::after {
+    content: "";
+    position: absolute;
+    background-color: var(--dark-color);
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.focus-ring-dark:focus {
+    outline: var(--outline-dark);
+    outline-offset: var(--outline-offset);
+}
+.focus-ring-light:focus {
+    outline: var(--outline-light);
+    outline-offset: var(--outline-offset);
+}
+
+.flex {
+    display: flex;
+}
+.flex-column {
+    flex-direction: column;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.align-items-center {
+    align-items: center;
+}
+.justify-content-center {
+    justify-content: center;
+}
+
+.relative {
+    position: relative;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.back-link {
+    text-decoration: none;
+    color: var(--dark-color);
+    margin-bottom: 2rem;
+    gap: 0.5rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+.required::after {
+    content: "*";
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
