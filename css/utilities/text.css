@@ -1,0 +1,11 @@
+.text-dark {
+    color: var(--dark-color);
+}
+
+.text-light {
+    color: var(--light-color);
+}
+
+.italics {
+    font-style: italic;
+}

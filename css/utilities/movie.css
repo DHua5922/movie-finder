@@ -1,0 +1,41 @@
+.movie-card__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform 0.2s ease-in-out;
+}
+
+.movie-card__link:hover {
+    transform: scale(1.05);
+}
+
+
+.movie-card__title {
+    position: absolute;
+    bottom: 0;
+    background-color: var(--light-color);
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.movie-card__title--dark {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.movie-card__title--light {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.movie-bg {
+    background-image: url(../../assets/movie-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}

@@ -42,7 +42,6 @@
     transform: translateY(-200%);
     transition: transform 0.2s ease-in-out;
 }
-
 .skip-link:focus,
 .skip-link:focus-visible {
     transform: translateY(0);

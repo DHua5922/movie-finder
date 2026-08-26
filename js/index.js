@@ -1,4 +1,5 @@
 const movieSearchInput = document.querySelector(".header__movie-search-input");
+const moviesWrapper = document.querySelector(".carousel");
 
 const moviePageForm = document.querySelector(".movies__pagination-form");
 const moviePageInput = document.querySelector(".movies__pagination-input");
@@ -11,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 async function loadTrendingMovies() {
-  // renderLoading();
+  renderLoading();
   try {
     const list = await getTrendingMoviesApi();
     renderMovies(list);
@@ -20,10 +21,10 @@ async function loadTrendingMovies() {
 
 function renderLoading() {
   const movieSkeletons = Array.from({ length: 8 }, () => {
-    const skeleton = document.createElement("div");
-    skeleton.classList.add("movie__wrapper");
+    const skeleton = document.createElement("li");
+    skeleton.classList.add("movie-card");
     skeleton.innerHTML = `
-      <div class="skeleton movie-image-skeleton"></div>
+      <div class="skeleton movie-card__skeleton"></div>
     `;
     return skeleton;
   });
@@ -34,18 +35,16 @@ function renderLoading() {
 }
 
 function renderMovies(list) {
-  const moviesWrapper = document.querySelector(".carousel");
-
   moviesWrapper.innerHTML = "";
   list.forEach((movie) => {
     const containerElem = document.createElement("li");
-    containerElem.classList.add("carousel-item", "relative");
+    containerElem.classList.add("carousel-item", "movie-card", "relative");
 
     const linkElem = document.createElement("a");
-    linkElem.classList.add("movie__link", "movie-hover", "focus-ring-light");
+    linkElem.classList.add("movie-card__link", "focus-ring-light");
     linkElem.href = `movie.html?id=${movie.id}`;
     linkElem.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}')`;
-    linkElem.innerHTML = `<h3 class="text-dark movie__title movie__title--light">${movie.title}</h3>`;
+    linkElem.innerHTML = `<h3 class="text-dark movie-card__title movie-card__title--light">${movie.title}</h3>`;
 
     containerElem.appendChild(linkElem);
     moviesWrapper.appendChild(containerElem);

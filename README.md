@@ -22,6 +22,27 @@ A responsive movie discovery app built with HTML, CSS, and JavaScript. The app u
 - Vanilla JavaScript
 - TMDB API
 
+## Project Structure
+
+```text
+movie-finder/
+├── index.html
+├── search-movies.html
+├── movie.html
+├── cart.html
+├── checkout.html
+├── css/
+├── js/
+│   ├── api.js
+│   ├── index.js
+│   ├── search-movies.js
+│   ├── cart.js
+│   ├── checkout.js
+│   ├── movie/
+│   └── utilities/
+└── assets/
+```
+
 ## Accessibility
 
 This project was reviewed with axe DevTools and Lighthouse. Accessibility improvements include semantic landmarks, accessible form labels, visible focus states, descriptive image alt text, iframe titles, and keyboard-friendly interactive elements.
@@ -36,6 +57,7 @@ No build step is required. Open `index.html` in a browser.
 
 - Fetching and rendering data from a third-party API
 - Building multi-page navigation with shared UI patterns
+- Splitting shared JavaScript into page helpers under `js/utilities/` and movie-page loader/render files under `js/movie/`
 - Managing client-side state with `localStorage`
 - Creating reusable CSS utility classes and BEM-style component classes
 - Handling loading states, sorting, pagination, and dynamic DOM updates
